@@ -1,0 +1,17 @@
+.partition-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+.resizable-partition {
+  overflow: hidden;
+}

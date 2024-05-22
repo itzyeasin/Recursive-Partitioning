@@ -93,9 +93,19 @@ const RecursivePartitioning = () => {
   };
 
   const removePartition = (id) => {
-    setPartitions((prevPartitions) =>
-      prevPartitions.filter((p) => p.id !== id)
-    );
+    const removePartitionRecursive = (partitions) => {
+      return partitions.reduce((acc, partition) => {
+        if (partition.id === id) {
+          return acc;
+        } else if (partition.children.length > 0) {
+          partition.children = removePartitionRecursive(partition.children);
+        }
+        acc.push(partition);
+        return acc;
+      }, []);
+    };
+
+    setPartitions((prevPartitions) => removePartitionRecursive(prevPartitions));
   };
 
   return (

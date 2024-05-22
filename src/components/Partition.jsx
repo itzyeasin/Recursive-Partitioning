@@ -1,7 +1,7 @@
 import React from 'react';
 import './partition.css';
 
-const Partition = ({ id, color, split }) => {
+const Partition = ({ id, color, split, remove }) => {
   return (
     <div className="partition" style={{ backgroundColor: color }}>
       <div className="button-container">
@@ -10,6 +10,9 @@ const Partition = ({ id, color, split }) => {
         </button>
         <button onClick={() => split(id, 'H')} className="split-button">
           H
+        </button>
+        <button onClick={() => remove(id)} className="remove-button">
+          Remove
         </button>
       </div>
     </div>
